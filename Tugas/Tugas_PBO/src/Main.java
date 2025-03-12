@@ -51,7 +51,7 @@ public class Main {
         String nimValid = "202410370110500";
 
         if (nama.equalsIgnoreCase(namaValid) && nim.equals(nimValid)) {
-            System.out.println("Login Mahasiswa berhasil!" + "\n");
+            System.out.println("Login Mahasiswa berhasil!");
             System.out.println("Nama: " + nama);
             System.out.println("NIM: " + nim);
         } else {
