@@ -1,16 +1,18 @@
-import java.util.Scanner;
+public class Mahasiswa {
+    private String nama = "sigit";
+    private String NIM = "202410370110500";
 
-class Mahasiswa {
-    private String nama = "Sigit";
-    private String nim = "2024500";
-
-    public boolean login(String inputNama, String inputNim) {
-        return inputNama.equalsIgnoreCase(nama) && inputNim.equals(nim);
+    public void login(String inputNama, String inputNim) {
+        if (nama.equals(inputNama) && NIM.equals(inputNim)) {
+            System.out.println("Login Mahasiswa berhasil");
+            displayInfo();
+        } else {
+            System.out.println("Login gagal!");
+        }
     }
 
     public void displayInfo() {
-        System.out.println("Login berhasil sebagai Mahasiswa!");
         System.out.println("Nama: " + nama);
-        System.out.println("NIM : " + nim);
+        System.out.println("NIM: " + NIM);
     }
 }

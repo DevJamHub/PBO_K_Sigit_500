@@ -1,10 +1,12 @@
-import java.util.Scanner;
-
-class Admin {
+public class Admin {
     private String username = "admin";
-    private String password = "1234";
+    private String password = "admin123";
 
-    public boolean login(String inputUsername, String inputPassword) {
-        return inputUsername.equalsIgnoreCase(username) && inputPassword.equals(password);
+    public void login(String inputUsername, String inputPassword) {
+        if (username.equals(inputUsername) && password.equals(inputPassword)) {
+            System.out.println("Login admin berhasil");
+        } else {
+            System.out.println("login admin gagal!");
+        }
     }
 }
