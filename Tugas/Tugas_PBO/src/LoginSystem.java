@@ -6,6 +6,9 @@ public class LoginSystem {
         Admin admin = new Admin();
         Mahasiswa mahasiswa = new Mahasiswa();
 
+        boolean login = true;
+
+        while(login) {
         System.out.println("=== Sistem Login ===");
         System.out.println("1. Login sebagai Admin");
         System.out.println("2. Login sebagai Mahasiswa");
@@ -33,7 +36,7 @@ public class LoginSystem {
 
             default:
                 System.out.println("Pilihan tidak valid!");
-        }
+        } }
 
         scanner.close();
     }
