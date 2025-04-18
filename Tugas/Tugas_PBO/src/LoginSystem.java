@@ -3,41 +3,47 @@ import java.util.Scanner;
 public class LoginSystem {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Admin admin = new Admin();
-        Mahasiswa mahasiswa = new Mahasiswa();
 
-        boolean login = true;
+        // Contoh data user
+        Admin admin = new Admin("Admin", "-", "Adminaja", "admin123");
+        Mahasiswa mahasiswa = new Mahasiswa("Sigit Novriyanto", "202410370110500");
 
-        while(login) {
-        System.out.println("=== Sistem Login ===");
-        System.out.println("1. Login sebagai Admin");
-        System.out.println("2. Login sebagai Mahasiswa");
-        System.out.print("Pilih jenis login (1/2): ");
-        String pilihan = scanner.nextLine();
+        while (true) {
+            System.out.println("\n=== Sistem Login ===");
+            System.out.println("1. Login sebagai Admin");
+            System.out.println("2. Login sebagai Mahasiswa");
+            System.out.print("Masukkan pilihan (1/2): ");
 
-        switch (pilihan) {
-            case "1":
-                System.out.print("Masukkan Username: ");
-                String username = scanner.nextLine();
-                System.out.print("Masukkan Password: ");
-                String password = scanner.nextLine();
+            int pilihan = 0;
+            if (scanner.hasNextInt()) {
+                pilihan = scanner.nextInt();
+                scanner.nextLine(); // Buang newline
+            } else {
+                scanner.nextLine(); // Buang input non-angka
+                System.out.println("Input harus angka! Silakan coba lagi.");
+                continue;
+            }
 
-                admin.login(username, password); // Langsung panggil login
-                break;
+            boolean sukses = false;
+            User user = null;
 
-            case "2":
-                System.out.print("Masukkan Nama: ");
-                String nama = scanner.nextLine();
-                System.out.print("Masukkan NIM: ");
-                String nim = scanner.nextLine();
+            if (pilihan == 1) {
+                user = admin;
+                sukses = admin.login();
+            } else if (pilihan == 2) {
+                user = mahasiswa;
+                sukses = mahasiswa.login();
+            } else {
+                System.out.println("Pilihan tidak valid! Silakan coba lagi.");
+                continue;
+            }
 
-                mahasiswa.login(nama, nim); // Langsung panggil login
-                break;
-
-            default:
-                System.out.println("Pilihan tidak valid!");
-        } }
-
-        scanner.close();
+            if (sukses) {
+                user.tampilkanInfo();
+                break; // keluar dari loop karena login sukses
+            } else {
+                System.out.println("Login gagal! Silakan coba lagi.");
+            }
+        }
     }
 }
