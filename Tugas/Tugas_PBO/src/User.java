@@ -1,5 +1,5 @@
 public class User {
-    // Enkapsulasi atrribut string
+    // Enkapsulasi attribut string
     private String nama;
     private String nim;
 
